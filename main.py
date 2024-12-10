@@ -1,3 +1,4 @@
+import json
 from tkinter import *
 import  random_password
 from tkinter import messagebox
@@ -12,25 +13,39 @@ def password():
 def copy_to_clip():
     pyperclip.copy(entry_password.get())
 
+def clear_entry():
+    entry_web.delete(0,END)
+    entry_email.delete(0,END)
+    entry_password.delete(0,END)
 # ---------------------------- SAVE PASSWORD ------------------------------- #
 def save_pass():
+    data_list = []
+    web=entry_web.get()
+    p_word=entry_password.get()
+    email=entry_email.get()
+    my_dict={"web":web,"email":email,"password":p_word}
+
     # CHECK FIELDS ARE FILLED------------------------------- #
-    if len(entry_password.get())>0 and len(entry_email.get())>0 and len(entry_web.get())>0:
-        with open("my_pass.txt",mode="a")as passwords:
-            is_ok=messagebox.askokcancel(title="Inputs Given",message=f"website: {entry_web.get()}\nEmail: {entry_email.get()}\nPassword:{entry_password}")
-            if is_ok:
-                passwords.write("\n Website:")
-                passwords.write(entry_web.get())
-                passwords.write("\n Email:")
-                passwords.write(entry_email.get())
-                passwords.write("\n Password:")
-                passwords.write(entry_password.get())
-                passwords.write("\n")*2 #SEPERATING VALUES BY 2 EMPTY LINES
-                #Deleting the Details in web and password Entry field
-                entry_password.delete(0,END)
-                entry_web.delete(0,END)
+    if len(p_word)>0 and len(email)>0 and len(web)>0:
+       try:
+          with open("data_file.json",mode="r")as file:
+            """is_ok=messagebox.askokcancel(title="Inputs Given",message=f"website: {entry_web.get()}\nEmail: {entry_email.get()}\nPassword:{entry_password}")
+            if is_ok:"""
+            data=json.load(file)
+            data_list.append(data)
+
+       except FileNotFoundError:
+            with open("data_file.json",mode="w")as file:
+                data_list.append(my_dict)
+                json.dump(data_list,file,indent=4)
+                clear_entry()
+       else:
+           with open("data_file.json",mode="w")as file:
+               data_list.append(my_dict)
+               json.dump(data_list, file, indent=4)
+               clear_entry()
     else:
-        messagebox.showinfo(title="Invalid inputs",message="Check all fields are filled")
+        print("invalid input")
 
 # ---------------------------- UI SETUP ------------------------------- #
 FONT=("Segoe UI",15,"bold")
