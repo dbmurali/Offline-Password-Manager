@@ -20,16 +20,16 @@ A simple and secure Password Manager built with Python and Tkinter. This applica
    - After generating or retrieving a password, you can copy it to your clipboard with a button click, making it easy to paste it elsewhere (like logging into a website).
 
 ### 5. **Screenshots**:
- #### 1. **Application Interface**:
+#### 1. **Application Interface**:
    ![Application Interface](https://github.com/dbmurali/Offline-Password-Manager/blob/28b66d3712f17f1b713c413d384aecba5ae13dbe/Application%20Interface.png)
 
- #### 2. **Password Generation**:
+#### 2. **Password Generation**:
    ![Password Generation](https://github.com/dbmurali/Offline-Password-Manager/blob/28b66d3712f17f1b713c413d384aecba5ae13dbe/Password%20generation.png)
 
- #### 3. **Search Functionality**:
+#### 3. **Search Functionality**:
    ![Search Functionality](https://github.com/dbmurali/Offline-Password-Manager/blob/28b66d3712f17f1b713c413d384aecba5ae13dbe/Search%20Functionality.png)
 
- #### 4. **Error Message**:
+#### 4. **Error Message**:
    ![Error Message](https://github.com/dbmurali/Offline-Password-Manager/blob/28b66d3712f17f1b713c413d384aecba5ae13dbe/Error%20screen.png)
 
 ## How It Works:
@@ -47,13 +47,13 @@ A simple and secure Password Manager built with Python and Tkinter. This applica
    - You can copy the generated password to your clipboard, so you don't need to manually type it out.
   
 5.  **Requirements**:
-- Python 3.x
-- `pyperclip` for copying to clipboard
-- Tkinter (pre-installed with Python)
+   - Python 3.x
+   - `pyperclip` for copying to clipboard
+   - Tkinter (pre-installed with Python)
 
 6. **Example of JSON Data**:
 
-When you save passwords, the credentials are stored in a JSON format like this:
+   When you save passwords, the credentials are stored in a JSON format like this:
 
 ```json
 {
