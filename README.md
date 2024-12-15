@@ -45,9 +45,27 @@ A simple and secure Password Manager built with Python and Tkinter. This applica
 
 4. **Clipboard Functionality**:
    - You can copy the generated password to your clipboard, so you don't need to manually type it out.
-
-## Requirements:
+  
+5.  **Requirements**:
 - Python 3.x
 - `pyperclip` for copying to clipboard
 - Tkinter (pre-installed with Python)
+
+6. **Example of JSON Data**:
+
+When you save passwords, the credentials are stored in a JSON format like this:
+
+```json
+{
+ "Git": [
+     "xyz@gmail.com",
+     "$5Q7t3Vz83p"
+ ],
+ "google": [
+     "xyz@gmail.com",
+     "0Q%#XT1w5f9"
+ ]
+}
+
+
 
